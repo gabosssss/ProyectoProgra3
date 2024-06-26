@@ -10,17 +10,22 @@ using namespace std;
 
 int main() {
     ifstream data;
-    data.open("../mpst_full_data.csv");
-    string line="";
+    ifstream data2;
+    data.open("../mpst_full_data_fixed.csv");
+    string line;
+    vector<vector<string>> peliculas;
     getline(data,line);
-    getline(data,line);
-
-    cout<<line<<endl<<endl;
-
-    vector<string> hola=split(line,',');
-    for (int i=0;i<hola.size();i++) {
-        cout<<hola[i]<<endl;
+    while (getline(data,line)) {
+        vector<string> pelis=split(line,';');
+        peliculas.push_back(pelis);
     }
 
     data.close();
+
+    for (size_t i = 0; i < peliculas.size(); i++) {
+        for (size_t j = 0; j < peliculas[i].size(); j++) {
+            cout << peliculas[i][j] <<endl;
+        }
+        cout << endl;
+    }
 }
