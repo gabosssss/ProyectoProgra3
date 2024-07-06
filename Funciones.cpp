@@ -1,6 +1,5 @@
 #include "Funciones.h"
-#include <fstream>
-#include <iostream>
+#include "Objetos/Peliculas.h"
 
 vector<string> split(string texto, char separador) {
     vector<string> resultado;
@@ -64,4 +63,32 @@ vector<string> get_col(vector<vector<string>> database, int pos) {
         }
     }
     return ret;
+}
+
+vector<Peliculas> get_by_tag(Database* b){
+    string busqueda;
+    vector<Peliculas> peliculas;
+    vector<string> d = b->getTags();
+    cout << "Enter tag to search: "; cin >> busqueda;
+    for(int i = 0; i < d.size();i++){
+        if(d[i].find(busqueda) != string::npos){
+            peliculas.push_back(Peliculas(b->imdb_id[i], b->title[i], b->plot_synopsis[i], b->tags[i], b->split[i], b->synopsis_source[i]));
+        }
+    }
+    return peliculas;
+}
+
+void get_peliculas_tag_simple(vector<Peliculas> peliculas){
+    for (int i = 0; i < 5; i++) {
+        InfoBase infoBase(&peliculas[i]);
+        infoBase.mostrar();
+    }
+}
+
+void get_peliculas_tag_complejo(vector<Peliculas> peliculas){
+    for (int i = 0; i < 5; i++) {
+        InfoBase infoBase(&peliculas[i]);
+        InfoCompleta infoCompleta(&infoBase);
+        infoCompleta.mostrar();
+    }
 }
