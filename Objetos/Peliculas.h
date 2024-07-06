@@ -1,25 +1,23 @@
-
 #ifndef PELICULAS_H
 #define PELICULAS_H
 
-#include "iostream"
-#include "vector"
+#include <iostream>
 
 using namespace std;
 
-
-
-class Peliculas {
-private:
+struct Peliculas {
     string imdb_id;
+    string title;
     string plot_synopsis;
-    vector<string> tags;
-public:
-    Peliculas(string codigo, string plot, vector<string> tags):imdb_id(codigo),plot_synopsis(plot),tags(tags){}
-    ~Peliculas(){}
+    string tags;
+    string split;
+    string synopsis_source;
+    Peliculas() = default;
+    Peliculas(string, string, string , string, string, string);
 
+    virtual void mostrar();
+
+    virtual ~Peliculas() {}
 };
 
-
-
-#endif //PELICULAS_H
+#endif // PELICULAS_H
