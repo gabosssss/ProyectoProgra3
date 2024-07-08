@@ -14,12 +14,13 @@ struct Usuario {
     vector<Peliculas> ver_mas_tarde;
     vector<Peliculas> likes;
 
+    void agregar_mas_tarde(Peliculas n) {
+        ver_mas_tarde.push_back(n);
+    }
+    void agregar_favortio(Peliculas n) {
+        likes.push_back(n);
+    }
 };
 
-void gabo() {
-    for (int i=0; i<10;i++) {
-
-    }
-}
 
 #endif //USUARIO_H

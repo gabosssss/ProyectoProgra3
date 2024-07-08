@@ -5,7 +5,9 @@
 #include "Objetos/Peliculas.cpp"
 #include "Objetos/Usuario.h"
 #include "Funciones.h"
-#include "Database.h"
+#include "Objetos/Database.h"
+
+
 using namespace std;
 
 int main() {
