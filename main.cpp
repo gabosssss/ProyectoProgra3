@@ -2,8 +2,10 @@
 #include <vector>
 #include <map>
 #include <fstream>
-#include "Objetos/Peliculas.cpp"
-#include "Objetos/Usuario.h"
+
+#include "Peliculas.h"
+#include "Info_peli.h"
+#include "Usuario.h"
 #include "Funciones.h"
 #include "Objetos/Database.h"
 
@@ -30,50 +32,19 @@ int main() {
     }
 
     cout << v2[9];
+    cout << endl << endl;
+    vector<string> v4 = d->getTags();
+    cout << v4[4];
+    cout << endl;
+    get_peliculas_tag_simple(get_by_tag(d));
+    cout << endl << endl;
+    get_peliculas_tag_complejo(get_by_tag(d));
+
 
     return 0;
 }
 
-/* Código anterior 1:
 
-    ifstream data;
-    data.open("../mpst_full_data.csv");
-    string line="";
-    getline(data,line);
-    getline(data,line);
-
-    cout<<line<<endl<<endl;
-
-    vector<string> hola=split(line,',');
-    for (int i=0;i<hola.size();i++) {
-        cout<<hola[i]<<endl;
-    }
-    // Cols: imdb_id,title,plot_synopsis,tags,split,synopsis_source
-    data.close();
-*/
-/* Código anterior 2:
-
-    ifstream data;
-    ifstream data2;
-    data.open("../mpst_full_data_fixed.csv");
-    string line;
-    vector<vector<string>> peliculas;
-    getline(data,line);
-    while (getline(data,line)) {
-        vector<string> pelis=split(line,';');
-        peliculas.push_back(pelis);
-    }
-
-    data.close();
-
-    for (size_t i = 0; i < peliculas.size(); i++) {
-        for (size_t j = 0; j < peliculas[i].size(); j++) {
-            cout << peliculas[i][j] <<endl;
-        }
-        cout << endl;
-    }
-*/
-
-// Cosa
-// g++ main.cpp Funciones.cpp Database.cpp -o main
+// Correr
+// g++ main.cpp Funciones.cpp Database.cpp Objetos/Info_peli.cpp Objetos/Peliculas.cpp -I./ -I./Objetos -o main
 // ./main.exe

@@ -2,3 +2,6 @@
 
 ## Integrantes
 * Gabriel Vargas Urmeneta
+* Sergio Ricce Abregú
+* Fabian Capuñay Lluen
+* Diego Atoche Rodriguez
