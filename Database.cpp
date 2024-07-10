@@ -1,5 +1,8 @@
+#ifndef DATABASE_CPP
+#define DATABASE_CPP
+
 #include "Database.h"
-#include "../Funciones.h"
+#include "Funciones.h"
 
 using namespace std;
 
@@ -31,3 +34,5 @@ void Database::initialize() {
     split = get_col(database, 4);
     synopsis_source = get_col(database, 5);
 }
+
+#endif

@@ -3,11 +3,11 @@
 #include <map>
 #include <fstream>
 
-#include "Peliculas.h"
-#include "Info_peli.h"
-#include "Usuario.h"
+#include "Objetos/Peliculas.h"
+#include "Objetos/Info_peli.h"
+#include "Objetos/Usuario.h"
 #include "Funciones.h"
-#include "Objetos/Database.h"
+#include "Database.h"
 
 
 using namespace std;
