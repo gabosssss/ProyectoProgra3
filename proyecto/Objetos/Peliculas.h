@@ -16,7 +16,6 @@ struct Peliculas {
     Peliculas(string, string, string , string, string, string);
 
     virtual void mostrar();
-
     virtual ~Peliculas() {}
 };
 

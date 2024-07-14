@@ -3,10 +3,10 @@
 #include <map>
 #include <fstream>
 
-#include "Peliculas.h"
-#include "Info_peli.h"
-#include "Usuarios.h"
-#include "UsuarioManager.h"
+#include "Objetos/Peliculas.h"
+#include "Objetos/Info_peli.h"
+#include "Objetos/Usuarios.h"
+#include "Objetos/UsuarioManager.h"
 #include "Funciones.h"
 #include "Database.h"
 

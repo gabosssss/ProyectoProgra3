@@ -1,5 +1,6 @@
 #include "Funciones.h"
 #include "Objetos/Peliculas.h"
+#include "Objetos/Historial.h"
 
 vector<string> split(string texto, char separador) {
     vector<string> resultado;
@@ -185,33 +186,34 @@ void interfaz(Database* b, UsuarioManager& manager) {
     cout << "2. Search by tags\n";
     cout << "3. Search by split\n";
     cout << "4. Search by plot synopsis\n";
+    cout << "5. Rewatch\n";
 
     bool isAdmin = (usuario->getTipo() == "admin");
 
     if (isAdmin) {
-        cout << "5. Delete user\n";
-        cout << "6. Suspend user\n";
-        cout << "7. Exit\n";
+        cout << "6. Delete user\n";
+        cout << "7. Suspend user\n";
+        cout << "8. Exit\n";
     } else {
-        cout << "5. Exit\n";
+        cout << "6. Exit\n";
     }
 
     cout << "Enter an option (1-";
     if (isAdmin) {
-        cout << "7";
+        cout << "8";
     } else {
-        cout << "5";
+        cout << "6";
     }
     cout << "): ";
 
     int a;
     cin >> a;
-    while ((isAdmin && (a < 1 || a > 7)) || (!isAdmin && (a < 1 || a > 5))) {
+    while ((isAdmin && (a < 1 || a > 8)) || (!isAdmin && (a < 1 || a > 6))) {
         cout << "Enter a valid option (1-";
         if (isAdmin) {
-            cout << "7";
+            cout << "8";
         } else {
-            cout << "5";
+            cout << "6";
         }
         cout << "): ";
         cin >> a;
@@ -241,6 +243,17 @@ void interfaz(Database* b, UsuarioManager& manager) {
                     break;
                 }
                 case 5: {
+                    if(!usuario.historial.empty()) {
+                        if (!Usuario.historial.size()>3) {
+                            for(int i=0;i<Usuario.historial.size();i++) {
+                                cout<<Usuario.historial.estadoAnterior;
+                            }
+                        }
+                    }
+                    break;
+
+                }
+                case 6: {
                     cout << "Enter username to delete: ";
                     string username;
                     cin >> username;
@@ -261,7 +274,7 @@ void interfaz(Database* b, UsuarioManager& manager) {
                     }
                     break;
                 }
-                case 6: {
+                case 7: {
                     cout << "Enter username to suspend: ";
                     string username;
                     cin >> username;

@@ -4,6 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include "Historial.h"
+#include "Memento.h"
+
+#include "Historial.h"
 
 using namespace std;
 
@@ -27,6 +31,7 @@ private:
     bool suspendido;
     vector<string> likedPeliculas;
     vector<string> verMasTardePeliculas;
+    Historial<Memento> elHistorial;
 
 public:
     UsuarioReal() = default;

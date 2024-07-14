@@ -1,4 +1,7 @@
 #include "Usuarios.h"
+#include <stack>
+
+
 
 string UsuarioReal::getNombre(){
     return nombre;
@@ -32,6 +35,7 @@ void UsuarioReal::suspender() {
 }
 
 void UsuarioReal::darLike(string peliculaId) {
+    elHistorial.agregarPelicula(peliculaId);
     likedPeliculas.push_back(peliculaId);
     cout << "Película " << peliculaId << " marcada como 'liked' por " << nombre << ".\n";
 }

@@ -14,3 +14,4 @@ void Peliculas::mostrar() {
     cout << "Title: " << title << endl;
     cout << "IMDB ID: " << imdb_id << endl;
 }
+
