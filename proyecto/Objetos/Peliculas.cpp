@@ -11,6 +11,10 @@ Peliculas::Peliculas(string imdb_id, string title, string plot, string tags, str
 }
 
 void Peliculas::mostrar() {
+    cout << "============================" << endl;
     cout << "Title: " << title << endl;
-    cout << "IMDB ID: " << imdb_id << endl;
+    cout << "Imdb_id: " << imdb_id << endl;
+    cout << "Tags: " << tags << endl;
+    cout << "Split: " << split << endl;
+    cout << "Synopsis_source: " << synopsis_source << endl << endl; 
 }

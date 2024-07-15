@@ -29,6 +29,7 @@ struct Database {
 
     void agregarPelicula(string imdb_id, string title, string plot, string tags, string split, string synopsis_source);
     void eliminarPelicula(string imdb_id);
+    int buscarPelicula_id(string id);
 };
 
 #endif // DATABASE_H

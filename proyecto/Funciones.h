@@ -13,15 +13,17 @@
 #include <cctype>
 using namespace std;
 
-vector<string> split(string texto, char separador);
-vector<string> split_avanzado(string texto, char separador);
+vector<string> split(string, char);
+vector<string> split_avanzado(string, char);
 vector<vector<string>> fill_database();
-vector<string> get_col(vector<vector<string>> database, int pos);
+vector<string> get_col(vector<vector<string>>, int);
 vector<Peliculas> get_by_column(Database*, int);
+void mostrarPaginado(vector<Peliculas>&, UsuarioReal*);
 void get_peliculas_tag_simple(vector<Peliculas>);
 void get_peliculas_tag_complejo(vector<Peliculas>);
 void registrarUsuario(UsuarioManager&);
 UsuarioReal* login(UsuarioManager&);
+void mostrarPeliculasMarcadas(UsuarioReal*, Database*);
 void interfaz(Database*, UsuarioManager&);
 
 #endif // FUNCIONES_H

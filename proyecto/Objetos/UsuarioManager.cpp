@@ -50,6 +50,16 @@ void UsuarioManager::eliminarUsuario(string nombreUsuario){
     }
 }
 
+
+UsuarioReal* UsuarioManager::buscarUsuario(string nombre){
+    for (auto& usuario : usuarios) {
+        if (usuario.getNombre() == nombre) {
+            return &usuario;
+        }
+    }
+    return nullptr;
+}
+
 void UsuarioManager::cargarUsuariosSuspendidos(string archivo){
     ifstream file(archivo);
     string line;
@@ -64,4 +74,10 @@ void UsuarioManager::cargarUsuariosSuspendidos(string archivo){
 
 bool UsuarioManager::estaSuspendido(string nombreUsuario){
     return find(usuariosSuspendidos.begin(), usuariosSuspendidos.end(), nombreUsuario) != usuariosSuspendidos.end();
+}
+
+void UsuarioManager::guardarLikesYVerMasTarde(string archivo){
+    for (auto usuario : usuarios) {
+        usuario.guardarLikesYVerMasTarde(archivo);
+    }
 }

@@ -19,8 +19,10 @@ public:
     void agregarUsuario(UsuarioReal usuario);
     void eliminarUsuario(string nombreUsuario);
     vector<UsuarioReal> getUsuarios();
+    UsuarioReal* buscarUsuario(string nombre);
     void cargarUsuariosSuspendidos(string archivo);
     bool estaSuspendido(string nombreUsuario);
+    void guardarLikesYVerMasTarde(string archivo);
 };
 
 #endif // USUARIOMANAGER_H

@@ -4,6 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include "Historial.h"
+class Historial;
+
+#include "Memento.h"
 
 using namespace std;
 
@@ -27,6 +31,7 @@ private:
     bool suspendido;
     vector<string> likedPeliculas;
     vector<string> verMasTardePeliculas;
+    Historial* elHistorial;
 
 public:
     UsuarioReal() = default;
@@ -37,12 +42,15 @@ public:
     string getContrasena() override;
     bool isSuspendido();
     void suspender();
+    ~UsuarioReal(); 
 
     // Métodos para gestionar "like" y "ver más tarde"
-    void darLike(string peliculaId);
-    void marcarVerMasTarde(string peliculaId);
-    void mostrarLikedPeliculas();
-    void mostrarVerMasTardePeliculas();
+    void darLike(string imdb_id);
+    void marcarVerMasTarde(string imdb_id);
+    vector<string>& getPeliculasLike();
+    vector<string>& getPeliculasVerMasTarde();
+    void cargarLikesYVerMasTarde(string archivo);
+    void guardarLikesYVerMasTarde(string archivo);
 
 };
 

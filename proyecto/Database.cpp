@@ -56,3 +56,11 @@ void Database::eliminarPelicula(string imdb_id) {
         cout << "Película con ID " << imdb_id << " no encontrada en la base de datos.\n";
     }
 }
+
+int Database::buscarPelicula_id(string id){
+    for (int i = 0; i < imdb_id.size();i++){
+        if (imdb_id[i] == id){
+            return i;
+        }
+    }
+}
