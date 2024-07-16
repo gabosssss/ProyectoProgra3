@@ -1,1 +1,0 @@
-g++ main.cpp Funciones.cpp Database.cpp -o main
