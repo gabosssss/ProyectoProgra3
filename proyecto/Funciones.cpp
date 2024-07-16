@@ -179,7 +179,7 @@ UsuarioReal* login(UsuarioManager& manager) {
     cout << "Enter password: ";
     cin >> contrasena;
 
-    UsuarioReal* usuario = manager.buscarUsuario(nombre);
+    UsuarioReal* usuario = manager.buscarUsuario(nombre,contrasena);
     if (usuario) {
         cout << "Login successful.\n";
         return usuario;
@@ -234,6 +234,29 @@ void mostrarPeliculasMarcadas(UsuarioReal* usuario, Database* b) {
             cout << "Synopsis Source: " << pelicula.synopsis_source << endl;
             cout << "-----------------------\n";
         }
+    }
+}
+
+void eliminarUsuario(UsuarioManager& manager) {
+    string username;
+    cout << "Enter username to delete: ";
+    cin >> username;
+
+    vector<UsuarioReal> usuarios = manager.getUsuarios();
+    auto it = find_if(usuarios.begin(), usuarios.end(), [&](UsuarioReal& u) {
+        return u.getNombre() == username;
+    });
+
+    if (it != usuarios.end()) {
+        if (it->getTipo() != "admin") {
+            manager.eliminarUsuario(username); // Eliminar el usuario del vector
+            manager.guardarUsuarios("../usuarios_actualizados.csv"); // Guardar los cambios en el archivo CSV
+            cout << "User " << username << " eliminated.\n";
+        } else {
+            cout << "Cannot erase another administrator.\n";
+        }
+    } else {
+        cout << "User not found.\n";
     }
 }
 
@@ -384,6 +407,7 @@ void interfaz(Database* b, UsuarioManager& manager) {
                 }
 
                 case 6: {
+                    /*
                     cout << "Enter username to delete: ";
                     string username;
                     cin >> username;
@@ -403,6 +427,15 @@ void interfaz(Database* b, UsuarioManager& manager) {
                     } else {
                         cout << "User not found.\n";
                     }
+                    
+                    cout << "Enter username to delete: ";
+                    string username;
+                    cin >> username;
+                    manager.eliminarUsuario(username); // Eliminar usuario usando la función de UsuarioManager
+                    manager.guardarUsuarios("../usuarios_actualizados.csv"); // Guardar cambios en el archivo CSV
+                    cout << "User " << username << " eliminated.\n";
+                    */
+                    eliminarUsuario(manager);
                     break;
                 }
                 case 7: {
@@ -524,3 +557,4 @@ void interfaz(Database* b, UsuarioManager& manager) {
 
     cout << "Exiting...\n";
 }
+
