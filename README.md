@@ -6,7 +6,7 @@
 * Fabian Capuñay Lluen
 * Diego Atoche Rodriguez
 
-### Video:
+### La branch con el proyecto final es Versión-ordenada.
 
 ## Documentación:
 
