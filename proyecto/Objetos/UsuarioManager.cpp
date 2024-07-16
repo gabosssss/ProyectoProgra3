@@ -35,8 +35,6 @@ void UsuarioManager::guardarUsuarios(string archivo){
     } else {
         cerr << "Error: Could not open " << archivo << " for writing" << endl;
     }
-    archivoSalida.close();
-    
 }
 
 void UsuarioManager::eliminarUsuario(string nombreUsuario){
@@ -50,6 +48,15 @@ void UsuarioManager::eliminarUsuario(string nombreUsuario){
     }
 }
 
+
+UsuarioReal* UsuarioManager::buscarUsuario(string nombre, string contrasena){
+    for (auto& usuario : usuarios) {
+            if (usuario.getNombre() == nombre && usuario.getContrasena() == contrasena) {
+                return &usuario;
+            }
+        }
+    return nullptr;
+}
 
 UsuarioReal* UsuarioManager::buscarUsuario(string nombre){
     for (auto& usuario : usuarios) {
