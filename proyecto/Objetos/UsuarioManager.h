@@ -19,6 +19,7 @@ public:
     void agregarUsuario(UsuarioReal usuario);
     void eliminarUsuario(string nombreUsuario);
     vector<UsuarioReal> getUsuarios();
+    UsuarioReal* buscarUsuario(string nombre, string contrasena);
     UsuarioReal* buscarUsuario(string nombre);
     void cargarUsuariosSuspendidos(string archivo);
     bool estaSuspendido(string nombreUsuario);
